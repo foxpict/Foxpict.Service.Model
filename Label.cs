@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using Foxpict.Service.Infra.Model;
 using Hyperion.Pf.Entity;
 using Newtonsoft.Json;
-using Foxpict.Service.Infra.Model;
 
 namespace Foxpict.Service.Model {
   [Table ("svp_Label")]
@@ -14,6 +14,10 @@ namespace Foxpict.Service.Model {
     public long Id { get; set; }
 
     public string Name { get; set; }
+
+    public string NormalizeName { get; set; }
+
+    public int NormalizeLogicVersion { get; set; }
 
     public string Comment { get; set; }
 
@@ -36,9 +40,9 @@ namespace Foxpict.Service.Model {
 
     public DateTime UpdatedDate { get; set; }
 
-    public ILabel GetParentLabel() => this.ParentLabel;
+    public ILabel GetParentLabel () => this.ParentLabel;
 
-    public void SetParentLabel(ILabel label) => this.ParentLabel = (Label)label;
+    public void SetParentLabel (ILabel label) => this.ParentLabel = (Label) label;
 
     public List<IContent> GetContentList () => this.Contents.Select (p => (IContent) p.Content).ToList ();
 
