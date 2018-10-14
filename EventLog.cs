@@ -10,7 +10,7 @@ namespace Foxpict.Service.Model
 
         public DateTime EventDate { get; set; }
 
-        public int EventId { get; set; }
+        public int EventNo { get; set; }
 
         public string Sender { get; set; }
 
